@@ -1,81 +1,43 @@
 package com.yun.demoDB.Controller;
+import com.yun.demoDB.DTO.CustomerDTO;
 import com.yun.demoDB.Repository.CustomerRepository;
 import com.yun.demoDB.Entity.Customer;
+import com.yun.demoDB.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
 @RestController
-
+@RequiredArgsConstructor
 @RequestMapping("api/v1/customer")
 public class CustomerController {
-    @Autowired
-    private CustomerRepository customerRepository;
-
-    @GetMapping
-    public List<Customer> getAllCustomer(){
-        return customerRepository.findAll();
+    private final CustomerService customerService;
+    @GetMapping()
+    public List<Customer> getListCustomer(){
+        return customerService.getAllCustomer();
+    }
+    @PostMapping()
+    public void addCustomer(@RequestBody Customer customer){
+       customerService.addCustomer(customer);
     }
 
-    record NewCustomerRequest(
-            String customerName,
-            String phoneNumber
-
-
-    ){
-
-    }
-    record UpdateCustomerRequest(
-            String customerName,
-            String phoneNumber,
-            int buildingID
-
-
-    ){
-
+    @GetMapping("/{customerID}")
+    public Customer searchCustomer (@PathVariable("customerID") int ID){
+       return customerService.searchCustomer(ID);
     }
 
-    @PostMapping
-    public void addCustomer(@RequestBody NewCustomerRequest request){
-
-        Customer cus = new Customer();
-        cus.setCustomerName(request.customerName());
-        cus.setPhoneNumber(request.phoneNumber());
-
-        customerRepository.save(cus);
+    @PutMapping("/{customerID}")
+    public void updateCustomer(@PathVariable("customerID") Integer id, @RequestBody CustomerDTO request ) {
+         customerService.updateCustomer(id, request);
     }
 
-    @GetMapping("{customerID}")
-    public Customer searchCustomer (int ID){
-        Customer cus = customerRepository.findById(ID).orElseThrow();
-        return cus;
-    }
-
-    @PutMapping("{customerID}")
-    public ResponseEntity<Customer> updateCustomer(@PathVariable("customerID") Integer id, @RequestBody UpdateCustomerRequest request ) throws ConfigDataResourceNotFoundException{
-
-        Customer cus = customerRepository.findById(id).orElseThrow();
-            cus.setCustomerID(id);
-            cus.setCustomerName(request.customerName());
-            cus.setPhoneNumber(request.phoneNumber());
-            final Customer updateCustomer = customerRepository.save(cus);
-            return ResponseEntity.ok(updateCustomer);
-
-
-    }
-    @DeleteMapping("{customerID}")
+    @DeleteMapping("/{customerID}")
     public void deleteAccount(@PathVariable("customerID") int Id ){
-
-        boolean  cus = customerRepository .existsById(Id);
-        if(!cus){
-            System.out.println("Don't have this account");
-        }else{
-            customerRepository.deleteById(Id);
-            System.out.println("Delete successfully");
-        }
+        customerService.deleteCustomer(Id);
     }
 
 

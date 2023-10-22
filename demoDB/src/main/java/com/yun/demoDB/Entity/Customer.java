@@ -1,15 +1,25 @@
 package com.yun.demoDB.Entity;
 
-import com.yun.demoDB.Entity.Account;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Entity
 @Table(name="Customer")
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
+
     private int customerID;
+
+    @Column(name="customer_name")
 
     private String customerName;
 
@@ -17,49 +27,22 @@ public class Customer {
     private String phoneNumber;
 
 
+    // Các phương thức và thuộc tính khác
 
-
-
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @MapsId
-    @JoinColumn(name="customer_id",referencedColumnName = "account_id")
-    private Account account;
-
-
-
-    public Customer(int customerID, String customerName, String phoneNumber) {
-        this.customerID = customerID;
-        this.customerName = customerName;
+//    public void setAccount(Account account) {
+//        this.account = account;
+//    }
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-
-    }
-
-    public int getCustomerID() {
-        return customerID;
     }
 
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
 
-    public String getCustomerName() {
-        return customerName;
-    }
-
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-
-
 
     @Override
     public String toString() {
@@ -70,9 +53,6 @@ public class Customer {
 
 
                 '}';
-    }
-
-    public Customer() {
     }
 
 

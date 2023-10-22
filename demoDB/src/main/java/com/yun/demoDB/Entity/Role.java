@@ -1,40 +1,30 @@
 package com.yun.demoDB.Entity;
 
-import com.yun.demoDB.Entity.Account;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 
 import java.util.Set;
 
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Entity
 public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="role_id")
-    private String roleId;
+    private int roleId;
     @Column(name="role")
     private String roleName;
 
-    public Role() {
-    }
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "role")
-    private Set<Account> accounts;
-    public Role(String roleId, String roleName) {
+    public void setRoleId(int roleId) {
         this.roleId = roleId;
-        this.roleName = roleName;
-    }
-
-    public String getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
-    }
-
-    public String getRoleName() {
-        return roleName;
     }
 
     public void setRoleName(String roleName) {

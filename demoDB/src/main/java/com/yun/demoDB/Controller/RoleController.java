@@ -1,6 +1,9 @@
 package com.yun.demoDB.Controller;
+import com.yun.demoDB.DTO.RoleDTO;
 import com.yun.demoDB.Repository.RoleRepository;
 import com.yun.demoDB.Entity.Role;
+import com.yun.demoDB.Service.RoleService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,52 +12,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-
+@RequiredArgsConstructor
 @RequestMapping("api/v1/role")
 public class RoleController {
-    @Autowired
-    private RoleRepository roleRepository;
+    private final RoleService roleService;
+
 
     @GetMapping
-    public List<Role> listallRole(){
-        return roleRepository.findAll();
+    public List<Role> listAllRole(){
+        return roleService.listAllRole();
     }
 
-    record UpdateRoleRequest(
-        String roleName
-
-    ){}
 
     @DeleteMapping("{roleID}")
-    public void deleteroleID(@PathVariable("roleID") String Id ) {
-
-        boolean role = roleRepository.existsById(Id);
-        if (!role) {
-            System.out.println("Don't have this customer");
-        } else {
-            roleRepository.deleteById(Id);
-            System.out.println("Delete successfully");
-        }
+    public void deleteRoleID(@PathVariable("roleID") int Id ) {
+        roleService.deleteRoleID(Id);
     }
     @PutMapping("{roleID}")
-    public ResponseEntity<Role> updateRole(@PathVariable("roleID") String Id, @RequestBody UpdateRoleRequest request )  {
-        Role role = roleRepository.findById(Id).orElseThrow();
-
-            roleRepository.deleteById(Id);
-            role.setRoleName(request.roleName);
-            final Role updateRole = roleRepository.save(role);
-            return ResponseEntity.ok(updateRole);
+    public void updateRole(@PathVariable("roleID") int Id, RoleDTO request )  {
+       roleService.updateRole(Id,request);
     }
 
-    record AddRole(
-            String role
-    ){
-    }
     @PostMapping
-    public void addRole(@RequestBody AddRole request){
-        Role role = new Role();
-        role.setRoleName(request.role());
-        roleRepository.save(role);
+    public void addRole(@RequestBody Role role){
+        roleService.addRole(role);
     }
 
 }
