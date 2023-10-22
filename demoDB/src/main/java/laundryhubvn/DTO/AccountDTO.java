@@ -1,4 +1,4 @@
-package com.yun.demoDB.DTO;
+package laundryhubvn.DTO;
 
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;

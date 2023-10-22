@@ -1,11 +1,7 @@
-package com.yun.demoDB.Controller;
-import com.yun.demoDB.DTO.CustomerDTO;
-import com.yun.demoDB.Repository.CustomerRepository;
-import com.yun.demoDB.Entity.Customer;
-import com.yun.demoDB.Service.CustomerService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
-import org.springframework.http.ResponseEntity;
+package laundryhubvn.Controller;
+import laundryhubvn.DTO.CustomerDTO;
+import laundryhubvn.Entity.Customer;
+import laundryhubvn.Service.CustomerService;
 import org.springframework.web.bind.annotation.*;
 import lombok.RequiredArgsConstructor;
 

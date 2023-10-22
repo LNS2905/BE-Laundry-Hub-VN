@@ -1,4 +1,4 @@
-package com.yun.demoDB.Entity;
+package laundryhubvn.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

@@ -1,8 +1,8 @@
-package com.yun.demoDB.Controller;
+package laundryhubvn.Controller;
+import laundryhubvn.Service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import com.yun.demoDB.Entity.Account;
-import com.yun.demoDB.Service.AccountService;
+import laundryhubvn.Entity.Account;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;

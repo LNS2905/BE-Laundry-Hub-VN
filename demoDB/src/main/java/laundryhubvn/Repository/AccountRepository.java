@@ -1,6 +1,6 @@
-package com.yun.demoDB.Repository;
+package laundryhubvn.Repository;
 
-import com.yun.demoDB.Entity.Account;
+import laundryhubvn.Entity.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

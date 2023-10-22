@@ -1,4 +1,4 @@
-package com.yun.demoDB.Entity;
+package laundryhubvn.Entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

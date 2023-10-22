@@ -1,13 +1,11 @@
-package com.yun.demoDB.Service;
+package laundryhubvn.Service;
 
-import com.yun.demoDB.Controller.AccountController;
-import com.yun.demoDB.Entity.Account;
-import com.yun.demoDB.Entity.Customer;
-import com.yun.demoDB.Repository.AccountRepository;
-import com.yun.demoDB.Repository.CustomerRepository;
+import laundryhubvn.Entity.Account;
+import laundryhubvn.Entity.Customer;
+import laundryhubvn.Repository.AccountRepository;
+import laundryhubvn.Repository.CustomerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 

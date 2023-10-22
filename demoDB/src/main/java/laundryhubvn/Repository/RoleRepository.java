@@ -1,6 +1,6 @@
-package com.yun.demoDB.Repository;
+package laundryhubvn.Repository;
 
-import com.yun.demoDB.Entity.Role;
+import laundryhubvn.Entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RoleRepository extends JpaRepository<Role,Integer> {

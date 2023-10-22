@@ -1,11 +1,8 @@
-package com.yun.demoDB.Service;
-import com.yun.demoDB.Controller.RoleController;
-import com.yun.demoDB.DTO.RoleDTO;
-import com.yun.demoDB.Entity.Account;
-import com.yun.demoDB.Entity.Role;
-import com.yun.demoDB.Repository.RoleRepository;
+package laundryhubvn.Service;
+import laundryhubvn.DTO.RoleDTO;
+import laundryhubvn.Entity.Role;
+import laundryhubvn.Repository.RoleRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;

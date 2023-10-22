@@ -1,9 +1,8 @@
-package com.yun.demoDB.Service;
-import com.yun.demoDB.DTO.CustomerDTO;
+package laundryhubvn.Service;
+import laundryhubvn.DTO.CustomerDTO;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import com.yun.demoDB.Entity.Customer;
-import com.yun.demoDB.Repository.CustomerRepository;
+import laundryhubvn.Entity.Customer;
+import laundryhubvn.Repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
 
