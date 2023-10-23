@@ -17,17 +17,18 @@ public class RoleService {
 
         return roleRepository.findAll();
     }
-    public void addRole(@RequestBody Role role){
+    public void addRole( Role role){
         roleRepository.save(role);
     }
     public void deleteRoleID( int Id ) {
         Role role = roleRepository.findById(Id).orElseThrow(() -> new IllegalStateException("This role is not found"));
         roleRepository.deleteById(Id);
     }
-    public void updateRole(@PathVariable("roleID") int Id, RoleDTO request )  {
+    public void updateRole( int Id, RoleDTO request )  {
         Role role = roleRepository.findById(Id).orElseThrow(() -> new IllegalStateException("This role is not found"));
         role.setRoleName(request.getRoleName());
         roleRepository.save(role);
     }
+
 
 }

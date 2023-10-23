@@ -1,7 +1,7 @@
 package laundryhubvn.Service;
 import laundryhubvn.DTO.CustomerDTO;
-import lombok.AllArgsConstructor;
 import laundryhubvn.Entity.Customer;
+import lombok.AllArgsConstructor;
 import laundryhubvn.Repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
@@ -37,4 +37,8 @@ public class CustomerService {
         customerRepository.deleteById(id);
     }
 
+    public List<Customer> searchCustomerByName(String custommerName){
+        List<Customer> customerList = customerRepository.findbyCustomerName(custommerName);
+        return customerList;
+    }
 }

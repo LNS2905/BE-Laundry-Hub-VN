@@ -2,9 +2,15 @@ package laundryhubvn.Repository;
 
 import laundryhubvn.Entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface CustomerRepository extends JpaRepository<Customer, Integer> {
+import java.util.List;
 
+@Repository
+public interface CustomerRepository extends JpaRepository<Customer, Integer> { List<Customer> findbyName(String customerName);
+
+    @Query("select c from Customer c where c.customerName like %?1%")
+    List<Customer> findbyCustomerName(String custommerName);
 }
