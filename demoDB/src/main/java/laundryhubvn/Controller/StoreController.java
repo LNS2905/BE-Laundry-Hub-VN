@@ -2,17 +2,18 @@ package laundryhubvn.Controller;
 
 import laundryhubvn.Entity.Store;
 import laundryhubvn.Service.StoreService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 
+import org.springframework.web.bind.annotation.*;
+import lombok.RequiredArgsConstructor;
 import java.util.List;
 import java.util.Optional;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("api/v1/store")
 public class StoreController {
-    @Autowired
-    private  StoreService storeService;
+
+    private final StoreService storeService;
 
 
     @GetMapping

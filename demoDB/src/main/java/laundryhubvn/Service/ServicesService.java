@@ -1,19 +1,22 @@
 package laundryhubvn.Service;
-import laundryhubvn.Entity.Service;
+import laundryhubvn.Entity.Services;
 import laundryhubvn.Repository.ServiceRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
 
 import java.util.List;
-@org.springframework.stereotype.Service
+
+@Service
 @AllArgsConstructor
-public class ServiceService {
+public class ServicesService {
     private final ServiceRepository serviceRepository;
 
-    public List<Service> GetAllService(){
+    public List<Services> GetAllService(){
         return serviceRepository.findAll();
     }
 
-    public void addService(Service service){
+    public void addService(Services service){
         serviceRepository.save(service);
     }
 
@@ -21,8 +24,8 @@ public class ServiceService {
         serviceRepository.deleteById(service_id);
     }
 
-    public void updateService(int service_id, Service newService) {
-        Service service = serviceRepository.findById(service_id).orElseThrow(() -> new IllegalStateException("This service with this id is not exist"));
+    public void updateService(int service_id, Services newService) {
+        Services service = serviceRepository.findById(service_id).orElseThrow(() -> new IllegalStateException("This service with this id is not exist"));
         service.setPrice(service.getPrice());
         service.setDescription(service.getDescription());
 

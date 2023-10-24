@@ -37,8 +37,8 @@ public class CustomerService {
         customerRepository.deleteById(id);
     }
 
-    public List<Customer> searchCustomerByName(String custommerName){
-        List<Customer> customerList = customerRepository.findbyCustomerName(custommerName);
+    public List<Customer> searchCustomerByName(String customerName){
+        List<Customer> customerList = customerRepository.findByCustomerName(customerName);
         return customerList;
     }
 }
