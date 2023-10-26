@@ -15,15 +15,22 @@ public class AccountController {
     private final AccountService accountService;
 
     @GetMapping()
-    public List<Account> listAllAccount(){
-       return  accountService.GetAllAccount();
+    public List<Account> listAllAccount() {
+        return accountService.GetAllAccount();
     }
+
     @PostMapping()
-    public void addAccount(@RequestBody  Account account){
+    public void addAccount(@RequestBody Account account) {
         accountService.addAccount(account);
     }
+
     @DeleteMapping("/{accountID}")
-    public void deleteAccount(@PathVariable("accountID") int Id ){
+    public void deleteAccount(@PathVariable("accountID") int Id) {
         accountService.deleteAccount(Id);
     }
+
+//    @GetMapping("/{role}")
+//    public List<Account> getAccountByRole(@PathVariable("role") String role) {
+//        return accountService.getAccountByRole(role);
+//    }
 }

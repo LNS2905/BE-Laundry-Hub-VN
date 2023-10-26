@@ -25,6 +25,9 @@ public class Customer {
 
     @Column(name = "phone_number")
     private String phoneNumber;
+    @Column(name ="avatar")
+    private String avatar;
+
 
 
     // Các phương thức và thuộc tính khác

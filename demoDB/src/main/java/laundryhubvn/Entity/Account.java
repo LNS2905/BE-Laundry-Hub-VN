@@ -21,8 +21,9 @@ public class Account {
     private String username;
     @Column(name="password")
     private String password;
-    @Column(name="role_id")
-    private int role_id;
+    @Column(name="role")
+    private String role;
+
 
 //    @OneToOne(fetch = FetchType.LAZY,mappedBy = "account",cascade = CascadeType.ALL, orphanRemoval = true)
 //    @JsonIgnore
@@ -45,9 +46,7 @@ public class Account {
         this.password = password;
     }
 
-    public void setRole_id(int role_id) {
-        this.role_id = role_id;
-    }
+
 
 //    public void setCustomer(Customer customer) {
 //        this.customer = customer;
@@ -63,7 +62,7 @@ public class Account {
                 "account_id='" + account_id + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", role_id='" + role_id + '\'' +
+
                 '}';
     }
 }

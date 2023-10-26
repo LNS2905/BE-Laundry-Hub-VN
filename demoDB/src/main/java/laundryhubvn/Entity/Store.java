@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "Store")
+@Table(name ="Store")
 public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,9 +22,12 @@ public class Store {
     @Column(name="address")
     private String address;
     @Column(name="phone_number")
-    private int phone_number;
-    @Column(name = "admin_id")
-    private int admin_id;
+    private String phone_number;
+    @Column(name="cover_photo")
+    private String cover_photo;
     @Column(name = "status")
     private boolean status;
+
+
+
 }

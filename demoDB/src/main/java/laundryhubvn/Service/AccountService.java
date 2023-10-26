@@ -39,10 +39,10 @@ public class AccountService {
         Account acc = accountRepository.findById(id).orElseThrow(() -> new IllegalStateException("Account with this"+id +"is not found"));
         accountRepository.deleteById(id);
     }
-    public List<Account> getAcccountByRole(String role){
-       List<Account> acc = accountRepository.getAccountByRole(role);
-        return acc;
-    }
+//    public List<Account> getAccountByRole(String role){
+//       List<Account> acc = accountRepository.getAccountByRole(role);
+//        return acc;
+//    }
 
 
 
