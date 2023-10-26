@@ -11,11 +11,11 @@
 	<groupId>com.yun</groupId>
 	<artifactId>demoDB</artifactId>
 	<version>2.4.0-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>demoDB</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>20</java.version>
+		<java.version>16</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -79,7 +79,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>spring-boot-aws-exe</finalName>
+		<finalName>be</finalName>
 	</build>
 
 </project>
